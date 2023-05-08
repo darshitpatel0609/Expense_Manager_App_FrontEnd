@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>List Of User SubCategory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align:center;color:blue;">
+            List Of User Expense
+        </h1>
+        <div class="buttons-container" style="width: 400px;">
+            <a routerLink="/app-user-expense"><button type="submit"
+                    class="btn btn-primary" style="width: 150px;">Add Expense</button></a>&nbsp;
+                    <a routerLink="/app-user-dashboard"><button type="submit"
+                        class="btn btn-primary" style="width: 150px;">Back</button></a>&nbsp;
+        </div>
+        <!-- Bootstrap table class -->
+        <table class="table table-bordered" border="3" >
+            <thead class="thead-dark">
+            <tr *ngIf="userExpenses">
+                <th>Expense Id</th>
+                <th>Expense Amount</th>
+                <th>Expense Payee</th>
+                <th>Expense Status</th>
+                <th>Expense Description</th>
+                <th> Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+            
+
+            <tr *ngFor="let userExpense of userExpenses">
+                <td>{{userExpense["userExpenseId"]}}</td>
+                <td>{{userExpense["amount"]}}</td>
+                <td>{{userExpense["payee"]}}</td>
+                <td>{{userExpense["status"]}}</td>
+                <td>{{userExpense["description"]}}</td>
+                <td>{{userExpense["date"]}}</td>
+
+
+
+                <td>
+                    <div class="buttons-container" style="width: 200px;">
+                        <button type="submit" class="btn btn-danger" (click)="deleteUserExpense(userExpense['userExpenseId'])">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

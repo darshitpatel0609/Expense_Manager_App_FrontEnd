@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>List Of User Category</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<h1 style="text-align:center;color:blue;">
+			List Of User Category
+		</h1>
+		<div class="buttons-container">
+			<a routerLink="/app-manage-category"><button type="submit"
+				class="btn btn-primary" style="width: 150px;">Add Category</button></a>&nbsp;
+				<a routerLink="/app-user-dashboard"><button type="submit"
+					class="btn btn-primary" style=" width: 100px;">Back</button></a>&nbsp;
+	</div>
+		<!-- Bootstrap table class -->
+		<table class="table table-bordered" border="3">
+			<thead class="thead-dark">
+			<tr *ngIf="userCategories">
+				<th>Category Id</th>
+				<th>Category Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+
+			<tr *ngFor="let userCategory of userCategories">
+				<td>{{userCategory["userCategoryId"]}}</td>
+				<td>{{userCategory["userCategoryName"]}}</td>
+
+				<td>
+					<div class="buttons-container">
+					<button type="submit"  class="btn btn-danger"  (click)="deleteUserCategory(userCategory['userCategoryId'])">Delete</button>
+				</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
